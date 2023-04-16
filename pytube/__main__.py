@@ -380,7 +380,10 @@ class YouTube:
 
         :rtype: int
         """
-        return int(self.vid_info.get('videoDetails', {}).get('lengthSeconds'))
+        try:
+            return int(self.vid_info.get('videoDetails', {}).get('lengthSeconds'))
+        except:
+            return None
 
     @property
     def views(self) -> int:
@@ -388,7 +391,10 @@ class YouTube:
 
         :rtype: int
         """
-        return int(self.vid_info.get("videoDetails", {}).get("viewCount"))
+        try:
+            return int(self.vid_info.get("videoDetails", {}).get("viewCount"))
+        except:
+            return None
 
     @property
     def author(self) -> str:
